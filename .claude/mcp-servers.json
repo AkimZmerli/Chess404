@@ -1,0 +1,40 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "enabled": true,
+      "description": "Browser automation for testing and visual debugging",
+      "capabilities": [
+        "take_screenshot",
+        "navigate",
+        "click",
+        "type",
+        "evaluate",
+        "wait_for"
+      ],
+      "usage": {
+        "testing": "Use for E2E tests and visual regression",
+        "debugging": "Capture screenshots when debugging UI issues",
+        "demo": "Create animated demos of gameplay"
+      }
+    },
+    "github": {
+      "enabled": true,
+      "description": "GitHub integration for version control",
+      "capabilities": [
+        "create_pull_request",
+        "create_issue",
+        "search_code",
+        "manage_branches"
+      ]
+    }
+  },
+  "preferences": {
+    "screenshot_format": "png",
+    "screenshot_on_ui_change": true,
+    "browser": "chromium",
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    }
+  }
+}

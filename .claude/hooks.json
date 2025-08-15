@@ -1,0 +1,37 @@
+{
+  "hooks": {
+    "pre-commit": [
+      {
+        "command": "npm run lint",
+        "description": "Run ESLint before committing"
+      },
+      {
+        "command": "npm run type-check",
+        "description": "Check TypeScript types"
+      }
+    ],
+    "pre-push": [
+      {
+        "command": "npm test",
+        "description": "Run all tests before pushing"
+      }
+    ],
+    "post-install": [
+      {
+        "command": "npm run generate-types",
+        "description": "Generate TypeScript types after dependencies install"
+      }
+    ],
+    "pre-build": [
+      {
+        "command": "npm run test",
+        "description": "Ensure tests pass before building"
+      }
+    ]
+  },
+  "automation": {
+    "screenshot_on_error": true,
+    "auto_fix_lint": true,
+    "test_on_save": false
+  }
+}

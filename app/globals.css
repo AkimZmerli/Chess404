@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #1a1b26;
+    --bg-secondary: #24283b;
+    --text-primary: #c0caf5;
+    --text-secondary: #a9b1d6;
+  }
+
+  body {
+    @apply bg-tokyo-bg text-tokyo-fg;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer components {
+  .board-square {
+    @apply relative w-full h-full flex items-center justify-center transition-colors duration-200;
+  }
+
+  .board-square-light {
+    @apply bg-board-light;
+  }
+
+  .board-square-dark {
+    @apply bg-board-dark;
+  }
+
+  .board-square-light:hover {
+    @apply bg-board-light-hover;
+  }
+
+  .board-square-dark:hover {
+    @apply bg-board-dark-hover;
+  }
+
+  .piece {
+    @apply text-6xl cursor-pointer select-none transition-transform duration-200;
+  }
+
+  .piece:hover {
+    @apply scale-110;
+  }
+
+  .piece-white {
+    @apply text-tokyo-fg filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)];
+  }
+
+  .piece-black {
+    @apply text-tokyo-bg-dark filter drop-shadow-[0_2px_4px_rgba(255,255,255,0.3)];
+  }
+
+  .square-highlight {
+    @apply after:absolute after:inset-0 after:bg-tokyo-green after:opacity-50;
+  }
+
+  .square-selected {
+    @apply after:absolute after:inset-0 after:bg-tokyo-yellow after:opacity-50;
+  }
+
+  .square-last-move {
+    @apply after:absolute after:inset-0 after:bg-tokyo-cyan after:opacity-30;
+  }
+
+  .square-check {
+    @apply after:absolute after:inset-0 after:bg-tokyo-red after:opacity-50 after:animate-pulse;
+  }
+
+  .valid-move-dot {
+    @apply absolute w-1/3 h-1/3 bg-tokyo-fg-dark rounded-full opacity-50;
+  }
+
+  .valid-capture-ring {
+    @apply absolute inset-2 border-4 border-tokyo-red rounded-full opacity-75;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
